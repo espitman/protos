@@ -1,0 +1,16 @@
+syntax = "proto3";
+package acm;
+
+message Request {
+    int32 id = 1;
+}
+
+message Response {
+    int32 id = 1;
+    string title = 2;
+    int32 host = 3;
+}
+
+service ChatService {
+    rpc Details(Request) returns (Response) {}
+}
