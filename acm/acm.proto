@@ -2,7 +2,7 @@ syntax = "proto3";
 package acm;
 
 message Request {
-    int32 id = 1;
+    string title = 1;
 }
 
 message Response {
@@ -11,6 +11,6 @@ message Response {
     int32 host = 3;
 }
 
-service ChatService {
+service AcmService {
     rpc Details(Request) returns (Response) {}
 }
