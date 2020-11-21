@@ -1,16 +1,19 @@
 syntax = "proto3";
 package acm;
 
-message Request {
-    string title = 1;
+message RequestCreate {
+    required string title = 1;
+    required int32 host = 2;
 }
 
-message Response {
-    int32 id = 1;
+message ResponseDetails {
+    string id = 1;
     string title = 2;
     int32 host = 3;
 }
 
+
 service AcmService {
-    rpc Details(Request) returns (Response) {}
+    rpc Create(RequestCreate) returns (ResponseDetails) {}
+    rpc Details(RequestDetails) returns (ResponseDetails) {}
 }
