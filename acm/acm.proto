@@ -2,8 +2,11 @@ syntax = "proto3";
 package acm;
 
 message RequestCreate {
-    required string title = 1;
-    required int32 host = 2;
+    string title = 1;
+    int32 host = 2;
+}
+message RequestDetails {
+    string id = 1;
 }
 
 message ResponseDetails {
