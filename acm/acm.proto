@@ -10,19 +10,19 @@ message RequestCreate {
 message RequestDetails {
     string id = 1;
 }
+message ResponseDetailsPayload {
+    string id = 1;
+    string title = 2;
+    int32 host = 3;
+    string description = 4;
+    string type = 5;
+}
 
 message ResponseDetails {
     string status = 1;
     string statusCode = 2;
     string message = 3;
-    message Payload {
-        string id = 1;
-        string title = 2;
-        int32 host = 3;
-        string description = 4;
-        string type = 5;
-    }
-    Payload payload = 4;
+    ResponseDetailsPayload payload = 4;
 }
 
 
