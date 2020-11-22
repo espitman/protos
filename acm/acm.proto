@@ -22,7 +22,7 @@ message ResponseDetails {
         string description = 4;
         string type = 5;
     }
-    repeated Payload payload = 4;
+    Payload payload = 4;
 }
 
 
