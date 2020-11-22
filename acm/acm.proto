@@ -20,7 +20,7 @@ message ResponseDetailsPayload {
 
 message ResponseDetails {
     string status = 1;
-    string statusCode = 2;
+    int32 statusCode = 2;
     string message = 3;
     ResponseDetailsPayload payload = 4;
 }
