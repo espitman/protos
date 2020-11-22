@@ -15,13 +15,14 @@ message ResponseDetails {
     string status = 1;
     string statusCode = 2;
     string message = 3;
-    message payload {
+    message Payload {
         string id = 1;
         string title = 2;
         int32 host = 3;
         string description = 4;
         string type = 5;
     }
+    repeated Payload payload = 4;
 }
 
 
