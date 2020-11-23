@@ -6,6 +6,22 @@ message RequestCreate {
     int32 host = 2;
     string description = 3;
     string type = 4;
+    enum ReservationTypes {
+        instant = 0;
+        preApprove = 1;
+    }
+    ReservationTypes reservationType = 5;
+    enum PlaceTypes {
+        personalRoom = 0;
+        sharedRoom = 1;
+    }
+    PlaceTypes placeType = 6;
+    enum PricingTypes {
+        perRoom = 0;
+        perPerson = 1;
+    }
+    PricingTypes pricingType = 7;
+    int32 minNight = 8;
 }
 message RequestDetails {
     string id = 1;
@@ -17,6 +33,10 @@ message ResponseDetails {
     int32 host = 3;
     string description = 4;
     string type = 5;
+    string reservationType = 6;
+    string placeType = 7;
+    string pricingType = 8;
+    int32 minNight = 9;
 }
 
 
