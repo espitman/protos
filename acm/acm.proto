@@ -1,9 +1,8 @@
 syntax = "proto3";
 package acm;
-import "validate.proto";
 
 message RequestCreate {
-    string title = 1 [(validate.rules).message.required = true];
+    string title = 1;
     int32 host = 2;
     string description = 3;
     string type = 4;
