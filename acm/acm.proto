@@ -1,9 +1,8 @@
 syntax = "proto3";
 package acm;
-import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 message RequestCreate {
-    string title = 1 [(validator.field) = {msg_exists : true}];;
+    string title = 1 ;
     int32 host = 2;
     string description = 3;
     string type = 4;
