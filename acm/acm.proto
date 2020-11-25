@@ -1,46 +1,46 @@
-syntax = "proto2";
+syntax = "proto3";
 package acm;
 
 message RequestCreate {
-    required string title = 1 ;
-    required int32 host = 2;
-    required string description = 3;
-    required string type = 4;
-    required string reservationType = 5 [default = "instant"];
-    required string placeType = 6 [default = "personalRoom"];
-    required string pricingType = 7 [default = "perPerson"];
-    required int32 minNight = 8  [default = 1];;
+    string title = 1 ;
+    int32 host = 2;
+    string description = 3;
+    string type = 4;
+    string reservationType = 5;
+    string placeType = 6;
+    string pricingType = 7;
+    int32 minNight = 8;
     message Capacity {
         message Beds {
-            required int32 twin = 1;
-            required int32 single = 2;
-            required int32 double = 3;
-            required int32 mattress = 4;
+            int32 twin = 1;
+            int32 single = 2;
+            int32 double = 3;
+            int32 mattress = 4;
         };
-        required Beds beds = 1;
+        Beds beds = 1;
         message Guests {
-            required int32 base = 1;
-            required int32 extra = 2;
+            int32 base = 1;
+            int32 extra = 2;
         }
-        required Guests guests = 2;
+        Guests guests = 2;
     };
-    required Capacity capacity = 9;
+    Capacity capacity = 9;
 
 }
 message RequestDetails {
-    required string id = 1;
+    string id = 1;
 }
 
 message ResponseDetails {
-    required string id = 1;
-    required string title = 2;
-    required int32 host = 3;
-    required string description = 4;
-    required string type = 5;
-    required string reservationType = 6;
-    required string placeType = 7;
-    required string pricingType = 8;
-    required int32 minNight = 9;
+    string id = 1;
+    string title = 2;
+    int32 host = 3;
+    string description = 4;
+    string type = 5;
+    string reservationType = 6;
+    string placeType = 7;
+    string pricingType = 8;
+    int32 minNight = 9;
 }
 
 
