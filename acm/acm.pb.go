@@ -42,13 +42,13 @@ type RequestCreate struct {
 	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description" validate:"required"`
 	// @inject_tag: json:"type",validate:"required"
 	Type string `protobuf:"bytes,4,opt,name=type,proto3" json:"type" validate:"required"`
-	// @inject_tag: json:"reservationType",validate:"required|in:instant,preApprove""
+	// @inject_tag: json:"reservationType",validate:"required|in:instant,preApprove"
 	ReservationType string `protobuf:"bytes,5,opt,name=reservationType,proto3" json:"reservationType" validate:"required|in:instant,preApprove"`
-	// @inject_tag: json:"placeType",validate:"required|in:personalRoom,sharedRoom""
+	// @inject_tag: json:"placeType",validate:"required|in:personalRoom,sharedRoom"
 	PlaceType string `protobuf:"bytes,6,opt,name=placeType,proto3" json:"placeType" validate:"required|in:personalRoom,sharedRoom"`
 	// @inject_tag: json:"pricingType",validate:"required"
 	PricingType string `protobuf:"bytes,7,opt,name=pricingType,proto3" json:"pricingType" validate:"required"`
-	// @inject_tag: json:"minNight",validate:"required|int|min:1|max:99""
+	// @inject_tag: json:"minNight",validate:"required|int|min:1|max:99"
 	MinNight int32 `protobuf:"varint,8,opt,name=minNight,proto3" json:"minNight" validate:"required|int|min:1|max:99"`
 	// @inject_tag: json:"capacity",validate:"required"
 	Capacity *RequestCreate_Capacity `protobuf:"bytes,9,opt,name=capacity,proto3" json:"capacity" validate:"required"`
@@ -312,8 +312,10 @@ type RequestCreate_Capacity struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Beds   *RequestCreate_Capacity_Beds   `protobuf:"bytes,1,opt,name=beds,proto3" json:"beds,omitempty"`
-	Guests *RequestCreate_Capacity_Guests `protobuf:"bytes,2,opt,name=guests,proto3" json:"guests,omitempty"`
+	// @inject_tag: json:"beds",validate:"required"
+	Beds *RequestCreate_Capacity_Beds `protobuf:"bytes,1,opt,name=beds,proto3" json:"beds" validate:"required"`
+	// @inject_tag: json:"guests",validate:"required"
+	Guests *RequestCreate_Capacity_Guests `protobuf:"bytes,2,opt,name=guests,proto3" json:"guests" validate:"required"`
 }
 
 func (x *RequestCreate_Capacity) Reset() {
@@ -367,10 +369,14 @@ type RequestCreate_Capacity_Beds struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Twin     int32 `protobuf:"varint,1,opt,name=twin,proto3" json:"twin,omitempty"`
-	Single   int32 `protobuf:"varint,2,opt,name=single,proto3" json:"single,omitempty"`
-	Double   int32 `protobuf:"varint,3,opt,name=double,proto3" json:"double,omitempty"`
-	Mattress int32 `protobuf:"varint,4,opt,name=mattress,proto3" json:"mattress,omitempty"`
+	// @inject_tag: json:"twin",validate:"int"
+	Twin int32 `protobuf:"varint,1,opt,name=twin,proto3" json:"twin" validate:"int"`
+	// @inject_tag: json:"single",validate:"int"
+	Single int32 `protobuf:"varint,2,opt,name=single,proto3" json:"single" validate:"int"`
+	// @inject_tag: json:"double",validate:"int"
+	Double int32 `protobuf:"varint,3,opt,name=double,proto3" json:"double" validate:"int"`
+	// @inject_tag: json:"mattress",validate:"int"
+	Mattress int32 `protobuf:"varint,4,opt,name=mattress,proto3" json:"mattress" validate:"int"`
 }
 
 func (x *RequestCreate_Capacity_Beds) Reset() {
@@ -438,8 +444,10 @@ type RequestCreate_Capacity_Guests struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Base  int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base,omitempty"`
-	Extra int32 `protobuf:"varint,2,opt,name=extra,proto3" json:"extra,omitempty"`
+	// @inject_tag: json:"base",validate:"required|int|min:1"
+	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required|int|min:1"`
+	// @inject_tag: json:"extra",validate:"int"
+	Extra int32 `protobuf:"varint,2,opt,name=extra,proto3" json:"extra" validate:"int"`
 }
 
 func (x *RequestCreate_Capacity_Guests) Reset() {
