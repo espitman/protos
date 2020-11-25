@@ -11,13 +11,13 @@ message RequestCreate {
     string description = 3;
     // @inject_tag: json:"type",validate:"required"
     string type = 4;
-    // @inject_tag: json:"reservationType",validate:"required|oneof=instant preApprove"
+    // @inject_tag: json:"reservationType",validate:"required,oneof=instant preApprove"
     string reservationType = 5;
-    // @inject_tag: json:"placeType",validate:"required|oneof=personalRoom sharedRoom"
+    // @inject_tag: json:"placeType",validate:"required,oneof=personalRoom sharedRoom"
     string placeType = 6;
     // @inject_tag: json:"pricingType",validate:"required"
     string pricingType = 7;
-    // @inject_tag: json:"minNight",validate:"required|number|min=1|max=99"
+    // @inject_tag: json:"minNight",validate:"required,number,min=1,max=99"
     int32 minNight = 8;
     message Capacity {
         message Beds {
