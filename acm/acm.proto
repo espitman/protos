@@ -17,7 +17,7 @@ message RequestCreate {
     string placeType = 6;
     // @inject_tag: json:"pricingType",validate:"required"
     string pricingType = 7;
-    // @inject_tag: json:"minNight",validate:"required|number|min=1|max-99"
+    // @inject_tag: json:"minNight",validate:"required|number|min=1|max=99"
     int32 minNight = 8;
     message Capacity {
         message Beds {

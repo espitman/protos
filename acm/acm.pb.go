@@ -48,8 +48,8 @@ type RequestCreate struct {
 	PlaceType string `protobuf:"bytes,6,opt,name=placeType,proto3" json:"placeType" validate:"required|oneof=personalRoom sharedRoom"`
 	// @inject_tag: json:"pricingType",validate:"required"
 	PricingType string `protobuf:"bytes,7,opt,name=pricingType,proto3" json:"pricingType" validate:"required"`
-	// @inject_tag: json:"minNight",validate:"required|number|min=1|max-99"
-	MinNight int32 `protobuf:"varint,8,opt,name=minNight,proto3" json:"minNight" validate:"required|number|min=1|max-99"`
+	// @inject_tag: json:"minNight",validate:"required|number|min=1|max=99"
+	MinNight int32 `protobuf:"varint,8,opt,name=minNight,proto3" json:"minNight" validate:"required|number|min=1|max=99"`
 	// @inject_tag: json:"capacity",validate:"required"
 	Capacity *RequestCreate_Capacity `protobuf:"bytes,9,opt,name=capacity,proto3" json:"capacity" validate:"required"`
 }
