@@ -34,8 +34,8 @@ type RequestCreate struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: validate:"required"
-	Title           string                  `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty" validate:"required"`
+	// @inject_tag: json:"title",validate:"required"
+	Title           string                  `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
 	Host            int32                   `protobuf:"varint,2,opt,name=host,proto3" json:"host,omitempty"`
 	Description     string                  `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
 	Type            string                  `protobuf:"bytes,4,opt,name=type,proto3" json:"type,omitempty"`

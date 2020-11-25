@@ -2,7 +2,7 @@ syntax = "proto3";
 package acm;
 
 message RequestCreate {
-    // @inject_tag: validate:"required"
+    // @inject_tag: json:"title",validate:"required"
     string title = 1;
     int32 host = 2;
     string description = 3;
