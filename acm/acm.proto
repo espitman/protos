@@ -6,24 +6,9 @@ message RequestCreate {
     int32 host = 2;
     string description = 3;
     string type = 4;
-    enum ReservationTypes {
-        ReservationTypesNone = 0;
-        instant = 1;
-        preApprove = 2;
-    }
-    ReservationTypes reservationType = 5;
-    enum PlaceTypes {
-        PlaceTypesNone = 0;
-        personalRoom = 1;
-        sharedRoom = 2;
-    }
-    PlaceTypes placeType = 6;
-    enum PricingTypes {
-        PricingTypesNone = 0;
-        perRoom = 1;
-        perPerson = 2;
-    }
-    PricingTypes pricingType = 7;
+    string reservationType = 5;
+    string placeType = 6;
+    string pricingType = 7;
     int32 minNight = 8;
 }
 message RequestDetails {
