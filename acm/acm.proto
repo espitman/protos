@@ -10,6 +10,22 @@ message RequestCreate {
     string placeType = 6;
     string pricingType = 7;
     int32 minNight = 8;
+    message Capacity {
+        message Beds {
+            int32 twin = 1;
+            int32 single = 2;
+            int32 double = 3;
+            int32 mattress = 4;
+        };
+        Beds beds = 1;
+        message Guests {
+            int32 base = 1;
+            int32 extra = 2;
+        }
+        Guests guests = 2;
+    };
+    Capacity capacity = 9;
+
 }
 message RequestDetails {
     string id = 1;
