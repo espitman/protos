@@ -17,25 +17,25 @@ message RequestCreate {
     string placeType = 6;
     // @inject_tag: json:"pricingType",validate:"required"
     string pricingType = 7;
-    // @inject_tag: json:"minNight",validate:"required|int|min:1|max:99"
+    // @inject_tag: json:"minNight",validate:"required|number|min:1|max:99"
     int32 minNight = 8;
     message Capacity {
         message Beds {
-            // @inject_tag: json:"twin",validate:"int"
+            // @inject_tag: json:"twin",validate:"inumbernt"
             int32 twin = 1;
-            // @inject_tag: json:"single",validate:"int"
+            // @inject_tag: json:"single",validate:"number"
             int32 single = 2;
-            // @inject_tag: json:"double",validate:"int"
+            // @inject_tag: json:"double",validate:"number"
             int32 double = 3;
-            // @inject_tag: json:"mattress",validate:"int"
+            // @inject_tag: json:"mattress",validate:"number"
             int32 mattress = 4;
         };
         // @inject_tag: json:"beds",validate:"required"
         Beds beds = 1;
         message Guests {
-            // @inject_tag: json:"base",validate:"required|int|min:1"
+            // @inject_tag: json:"base",validate:"required|number|min:1"
             int32 base = 1;
-            // @inject_tag: json:"extra",validate:"int"
+            // @inject_tag: json:"extra",validate:"number"
             int32 extra = 2;
         }
         // @inject_tag: json:"guests",validate:"required"
