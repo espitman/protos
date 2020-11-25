@@ -91,16 +91,16 @@ type Metrics struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"areaSize",validate:"number"
-	AreaSize int32 `protobuf:"varint,1,opt,name=areaSize,proto3" json:"areaSize" validate:"number"`
-	// @inject_tag: json:"areaSize",validate:"number"
-	BuildingSize int32 `protobuf:"varint,2,opt,name=buildingSize,proto3" json:"areaSize" validate:"number"`
-	// @inject_tag: json:"areaSize",validate:"number"
-	BathroomsCount int32 `protobuf:"varint,3,opt,name=bathroomsCount,proto3" json:"areaSize" validate:"number"`
-	// @inject_tag: json:"areaSize",validate:"number"
-	IranianToiletsCount int32 `protobuf:"varint,4,opt,name=iranianToiletsCount,proto3" json:"areaSize" validate:"number"`
-	// @inject_tag: json:"areaSize",validate:"number"
-	ToiletsCount int32 `protobuf:"varint,5,opt,name=toiletsCount,proto3" json:"areaSize" validate:"number"`
+	// @inject_tag: json:"areaSize",validate:"number,min=0"
+	AreaSize int32 `protobuf:"varint,1,opt,name=areaSize,proto3" json:"areaSize" validate:"number,min=0"`
+	// @inject_tag: json:"areaSize",validate:"number,min=0"
+	BuildingSize int32 `protobuf:"varint,2,opt,name=buildingSize,proto3" json:"areaSize" validate:"number,min=0"`
+	// @inject_tag: json:"areaSize",validate:"number,min=0"
+	BathroomsCount int32 `protobuf:"varint,3,opt,name=bathroomsCount,proto3" json:"areaSize" validate:"number,min=0"`
+	// @inject_tag: json:"areaSize",validate:"number,min=0"
+	IranianToiletsCount int32 `protobuf:"varint,4,opt,name=iranianToiletsCount,proto3" json:"areaSize" validate:"number,min=0"`
+	// @inject_tag: json:"areaSize",validate:"number,min=0"
+	ToiletsCount int32 `protobuf:"varint,5,opt,name=toiletsCount,proto3" json:"areaSize" validate:"number,min=0"`
 	// @inject_tag: json:"areaSize",validate:"number"
 	BedroomsCount int32 `protobuf:"varint,6,opt,name=bedroomsCount,proto3" json:"areaSize" validate:"number"`
 }
@@ -554,8 +554,8 @@ type Capacity_Guests struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"base",validate:"required,number,min=1,max=99"
-	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required,number,min=1,max=99"`
+	// @inject_tag: json:"base",validate:"required,number,min=1"
+	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required,number,min=1"`
 	// @inject_tag: json:"extra",validate:"number,min=0"
 	Extra int32 `protobuf:"varint,2,opt,name=extra,proto3" json:"extra" validate:"number,min=0"`
 }

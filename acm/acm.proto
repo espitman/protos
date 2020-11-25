@@ -15,7 +15,7 @@ message Capacity {
     // @inject_tag: json:"beds",validate:"required"
     Beds beds = 1;
     message Guests {
-        // @inject_tag: json:"base",validate:"required,number,min=1,max=99"
+        // @inject_tag: json:"base",validate:"required,number,min=1"
         int32 base = 1;
         // @inject_tag: json:"extra",validate:"number,min=0"
         int32 extra = 2;
@@ -25,19 +25,19 @@ message Capacity {
 };
 
 message Metrics {
-    // @inject_tag: json:"areaSize",validate:"number"
+    // @inject_tag: json:"areaSize",validate:"number,min=0"
     int32 areaSize = 1;
     
-    // @inject_tag: json:"areaSize",validate:"number"
+    // @inject_tag: json:"areaSize",validate:"number,min=0"
     int32 buildingSize = 2;
 
-    // @inject_tag: json:"areaSize",validate:"number"
+    // @inject_tag: json:"areaSize",validate:"number,min=0"
     int32 bathroomsCount = 3;
 
-    // @inject_tag: json:"areaSize",validate:"number"
+    // @inject_tag: json:"areaSize",validate:"number,min=0"
     int32 iranianToiletsCount = 4;
 
-    // @inject_tag: json:"areaSize",validate:"number"
+    // @inject_tag: json:"areaSize",validate:"number,min=0"
     int32 toiletsCount = 5;
 
     // @inject_tag: json:"areaSize",validate:"number"
