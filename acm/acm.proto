@@ -1,6 +1,28 @@
 syntax = "proto3";
 package acm;
 
+message Capacity {
+    message Beds {
+        // @inject_tag: json:"twin",validate:"number,min=0"
+        int32 twin = 1;
+        // @inject_tag: json:"single",validate:"number,min=0"
+        int32 single = 2;
+        // @inject_tag: json:"double",validate:"number,min=0"
+        int32 double = 3;
+        // @inject_tag: json:"mattress",validate:"number,min=0"
+        int32 mattress = 4;
+    };
+    // @inject_tag: json:"beds",validate:"required"
+    Beds beds = 1;
+    message Guests {
+        // @inject_tag: json:"base",validate:"required,number,min=1,max=99"
+        int32 base = 1;
+        // @inject_tag: json:"extra",validate:"number,min=0"
+        int32 extra = 2;
+    }
+    // @inject_tag: json:"guests",validate:"required"
+    Guests guests = 2;
+};
 
 message RequestCreate {
     // @inject_tag: json:"title",validate:"required"
@@ -19,28 +41,7 @@ message RequestCreate {
     string pricingType = 7;
     // @inject_tag: json:"minNight",validate:"required,number,min=1,max=99"
     int32 minNight = 8;
-    message Capacity {
-        message Beds {
-            // @inject_tag: json:"twin",validate:"number,min=0"
-            int32 twin = 1;
-            // @inject_tag: json:"single",validate:"number,min=0"
-            int32 single = 2;
-            // @inject_tag: json:"double",validate:"number,min=0"
-            int32 double = 3;
-            // @inject_tag: json:"mattress",validate:"number,min=0"
-            int32 mattress = 4;
-        };
-        // @inject_tag: json:"beds",validate:"required"
-        Beds beds = 1;
-        message Guests {
-            // @inject_tag: json:"base",validate:"required,number,min=1,max=99"
-            int32 base = 1;
-            // @inject_tag: json:"extra",validate:"number,min=0"
-            int32 extra = 2;
-        }
-        // @inject_tag: json:"guests",validate:"required"
-        Guests guests = 2;
-    };
+
     // @inject_tag: json:"capacity",validate:"required"
     Capacity capacity = 9;
 
@@ -59,6 +60,7 @@ message ResponseDetails {
     string placeType = 7;
     string pricingType = 8;
     int32 minNight = 9;
+    Capacity capacity = 10;
 }
 
 
