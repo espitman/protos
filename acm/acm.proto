@@ -21,13 +21,13 @@ message RequestCreate {
     int32 minNight = 8;
     message Capacity {
         message Beds {
-            // @inject_tag: json:"twin",validate:"required,number,min=0"
+            // @inject_tag: json:"twin",validate:"number,min=0"
             int32 twin = 1;
-            // @inject_tag: json:"single",validate:"required,number,min=0"
+            // @inject_tag: json:"single",validate:"number,min=0"
             int32 single = 2;
-            // @inject_tag: json:"double",validate:"required,number,min=0"
+            // @inject_tag: json:"double",validate:"number,min=0"
             int32 double = 3;
-            // @inject_tag: json:"mattress",validate:"required,number,min=0"
+            // @inject_tag: json:"mattress",validate:"number,min=0"
             int32 mattress = 4;
         };
         // @inject_tag: json:"beds",validate:"required"
@@ -35,7 +35,7 @@ message RequestCreate {
         message Guests {
             // @inject_tag: json:"base",validate:"required,number,min=1,max=99"
             int32 base = 1;
-            // @inject_tag: json:"extra",validate:"required,number,min=0"
+            // @inject_tag: json:"extra",validate:"number,min=0"
             int32 extra = 2;
         }
         // @inject_tag: json:"guests",validate:"required"

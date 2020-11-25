@@ -369,14 +369,14 @@ type RequestCreate_Capacity_Beds struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"twin",validate:"required,number,min=0"
-	Twin int32 `protobuf:"varint,1,opt,name=twin,proto3" json:"twin" validate:"required,number,min=0"`
-	// @inject_tag: json:"single",validate:"required,number,min=0"
-	Single int32 `protobuf:"varint,2,opt,name=single,proto3" json:"single" validate:"required,number,min=0"`
-	// @inject_tag: json:"double",validate:"required,number,min=0"
-	Double int32 `protobuf:"varint,3,opt,name=double,proto3" json:"double" validate:"required,number,min=0"`
-	// @inject_tag: json:"mattress",validate:"required,number,min=0"
-	Mattress int32 `protobuf:"varint,4,opt,name=mattress,proto3" json:"mattress" validate:"required,number,min=0"`
+	// @inject_tag: json:"twin",validate:"number,min=0"
+	Twin int32 `protobuf:"varint,1,opt,name=twin,proto3" json:"twin" validate:"number,min=0"`
+	// @inject_tag: json:"single",validate:"number,min=0"
+	Single int32 `protobuf:"varint,2,opt,name=single,proto3" json:"single" validate:"number,min=0"`
+	// @inject_tag: json:"double",validate:"number,min=0"
+	Double int32 `protobuf:"varint,3,opt,name=double,proto3" json:"double" validate:"number,min=0"`
+	// @inject_tag: json:"mattress",validate:"number,min=0"
+	Mattress int32 `protobuf:"varint,4,opt,name=mattress,proto3" json:"mattress" validate:"number,min=0"`
 }
 
 func (x *RequestCreate_Capacity_Beds) Reset() {
@@ -446,8 +446,8 @@ type RequestCreate_Capacity_Guests struct {
 
 	// @inject_tag: json:"base",validate:"required,number,min=1,max=99"
 	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required,number,min=1,max=99"`
-	// @inject_tag: json:"extra",validate:"required,number,min=0"
-	Extra int32 `protobuf:"varint,2,opt,name=extra,proto3" json:"extra" validate:"required,number,min=0"`
+	// @inject_tag: json:"extra",validate:"number,min=0"
+	Extra int32 `protobuf:"varint,2,opt,name=extra,proto3" json:"extra" validate:"number,min=0"`
 }
 
 func (x *RequestCreate_Capacity_Guests) Reset() {
