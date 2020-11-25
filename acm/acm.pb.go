@@ -42,14 +42,14 @@ type RequestCreate struct {
 	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description" validate:"required"`
 	// @inject_tag: json:"type",validate:"required"
 	Type string `protobuf:"bytes,4,opt,name=type,proto3" json:"type" validate:"required"`
-	// @inject_tag: json:"reservationType",validate:"required|in:instant,preApprove"
-	ReservationType string `protobuf:"bytes,5,opt,name=reservationType,proto3" json:"reservationType" validate:"required|in:instant,preApprove"`
-	// @inject_tag: json:"placeType",validate:"required|in:personalRoom,sharedRoom"
-	PlaceType string `protobuf:"bytes,6,opt,name=placeType,proto3" json:"placeType" validate:"required|in:personalRoom,sharedRoom"`
+	// @inject_tag: json:"reservationType",validate:"required|oneof=instant preApprove"
+	ReservationType string `protobuf:"bytes,5,opt,name=reservationType,proto3" json:"reservationType" validate:"required|oneof=instant preApprove"`
+	// @inject_tag: json:"placeType",validate:"required|oneof=personalRoom sharedRoom"
+	PlaceType string `protobuf:"bytes,6,opt,name=placeType,proto3" json:"placeType" validate:"required|oneof=personalRoom sharedRoom"`
 	// @inject_tag: json:"pricingType",validate:"required"
 	PricingType string `protobuf:"bytes,7,opt,name=pricingType,proto3" json:"pricingType" validate:"required"`
-	// @inject_tag: json:"minNight",validate:"required|number|min:1|max:99"
-	MinNight int32 `protobuf:"varint,8,opt,name=minNight,proto3" json:"minNight" validate:"required|number|min:1|max:99"`
+	// @inject_tag: json:"minNight",validate:"required|number|min=1|max:99"
+	MinNight int32 `protobuf:"varint,8,opt,name=minNight,proto3" json:"minNight" validate:"required|number|min=1|max:99"`
 	// @inject_tag: json:"capacity",validate:"required"
 	Capacity *RequestCreate_Capacity `protobuf:"bytes,9,opt,name=capacity,proto3" json:"capacity" validate:"required"`
 }
@@ -444,8 +444,8 @@ type RequestCreate_Capacity_Guests struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"base",validate:"required|number|min:1"
-	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required|number|min:1"`
+	// @inject_tag: json:"base",validate:"required|number|min=1"
+	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required|number|min=1"`
 	// @inject_tag: json:"extra",validate:"number"
 	Extra int32 `protobuf:"varint,2,opt,name=extra,proto3" json:"extra" validate:"number"`
 }
