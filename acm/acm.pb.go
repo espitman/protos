@@ -35,15 +35,23 @@ type RequestCreate struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @inject_tag: json:"title",validate:"required"
-	Title           string                  `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
-	Host            int32                   `protobuf:"varint,2,opt,name=host,proto3" json:"host,omitempty"`
-	Description     string                  `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	Type            string                  `protobuf:"bytes,4,opt,name=type,proto3" json:"type,omitempty"`
-	ReservationType string                  `protobuf:"bytes,5,opt,name=reservationType,proto3" json:"reservationType,omitempty"`
-	PlaceType       string                  `protobuf:"bytes,6,opt,name=placeType,proto3" json:"placeType,omitempty"`
-	PricingType     string                  `protobuf:"bytes,7,opt,name=pricingType,proto3" json:"pricingType,omitempty"`
-	MinNight        int32                   `protobuf:"varint,8,opt,name=minNight,proto3" json:"minNight,omitempty"`
-	Capacity        *RequestCreate_Capacity `protobuf:"bytes,9,opt,name=capacity,proto3" json:"capacity,omitempty"`
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
+	// @inject_tag: json:"host",validate:"required"
+	Host int32 `protobuf:"varint,2,opt,name=host,proto3" json:"host" validate:"required"`
+	// @inject_tag: json:"description",validate:"required"
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description" validate:"required"`
+	// @inject_tag: json:"type",validate:"required"
+	Type string `protobuf:"bytes,4,opt,name=type,proto3" json:"type" validate:"required"`
+	// @inject_tag: json:"reservationType",validate:"required"
+	ReservationType string `protobuf:"bytes,5,opt,name=reservationType,proto3" json:"reservationType" validate:"required"`
+	// @inject_tag: json:"placeType",validate:"required"
+	PlaceType string `protobuf:"bytes,6,opt,name=placeType,proto3" json:"placeType" validate:"required"`
+	// @inject_tag: json:"pricingType",validate:"required"
+	PricingType string `protobuf:"bytes,7,opt,name=pricingType,proto3" json:"pricingType" validate:"required"`
+	// @inject_tag: json:"minNight",validate:"required"
+	MinNight int32 `protobuf:"varint,8,opt,name=minNight,proto3" json:"minNight" validate:"required"`
+	// @inject_tag: json:"capacity",validate:"required"
+	Capacity *RequestCreate_Capacity `protobuf:"bytes,9,opt,name=capacity,proto3" json:"capacity" validate:"required"`
 }
 
 func (x *RequestCreate) Reset() {
