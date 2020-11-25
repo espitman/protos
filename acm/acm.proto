@@ -33,7 +33,7 @@ message RequestCreate {
         // @inject_tag: json:"beds",validate:"required"
         Beds beds = 1;
         message Guests {
-            // @inject_tag: json:"base",validate:"required|number|min=1"
+            // @inject_tag: json:"base",validate:"required"
             int32 base = 1;
             // @inject_tag: json:"extra",validate:"number"
             int32 extra = 2;

@@ -444,8 +444,8 @@ type RequestCreate_Capacity_Guests struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"base",validate:"required|number|min=1"
-	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required|number|min=1"`
+	// @inject_tag: json:"base",validate:"required"
+	Base int32 `protobuf:"varint,1,opt,name=base,proto3" json:"base" validate:"required"`
 	// @inject_tag: json:"extra",validate:"number"
 	Extra int32 `protobuf:"varint,2,opt,name=extra,proto3" json:"extra" validate:"number"`
 }
