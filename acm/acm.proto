@@ -21,7 +21,7 @@ message RequestCreate {
     int32 minNight = 8;
     message Capacity {
         message Beds {
-            // @inject_tag: json:"twin",validate:"inumbernt"
+            // @inject_tag: json:"twin",validate:"number"
             int32 twin = 1;
             // @inject_tag: json:"single",validate:"number"
             int32 single = 2;

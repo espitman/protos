@@ -369,8 +369,8 @@ type RequestCreate_Capacity_Beds struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"twin",validate:"inumbernt"
-	Twin int32 `protobuf:"varint,1,opt,name=twin,proto3" json:"twin" validate:"inumbernt"`
+	// @inject_tag: json:"twin",validate:"number"
+	Twin int32 `protobuf:"varint,1,opt,name=twin,proto3" json:"twin" validate:"number"`
 	// @inject_tag: json:"single",validate:"number"
 	Single int32 `protobuf:"varint,2,opt,name=single,proto3" json:"single" validate:"number"`
 	// @inject_tag: json:"double",validate:"number"
