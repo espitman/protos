@@ -96,6 +96,8 @@ message ResponseDetails {
     string pricingType = 8;
     int32 minNight = 9;
     Capacity capacity = 10;
+    Metrics metrics = 11;
+    bool vatStatus = 12;
 }
 
 
