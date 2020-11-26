@@ -45,6 +45,17 @@ message Metrics {
 
 }
 
+message Meal {
+    // @inject_tag: json:"breakfast",validate:"required"
+    bool breakfast = 1;
+
+    // @inject_tag: json:"lunch",validate:"required"
+    bool lunch = 2;
+
+    // @inject_tag: json:"dinner",validate:"required"
+    bool dinner = 3;
+}
+
 message RequestCreate {
     // @inject_tag: json:"title",validate:"required"
     string title = 1;
@@ -78,6 +89,9 @@ message RequestCreate {
 
     // @inject_tag: json:"vatStatus"
     bool vatStatus = 11;
+
+    // @inject_tag: json:"meal",validate:"required"
+    Meal meal = 12;
     
 
 }
@@ -98,6 +112,7 @@ message ResponseDetails {
     Capacity capacity = 10;
     Metrics metrics = 11;
     bool vatStatus = 12;
+    Meal meal = 13;
 }
 
 
