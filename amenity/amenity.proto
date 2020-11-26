@@ -6,6 +6,12 @@ message RequestCreate {
     // @inject_tag: json:"title",validate:"required"
     string title = 1;
 
+    // @inject_tag: json:"name",validate:"required"
+    string name = 2;
+
+    // @inject_tag: json:"icon",validate:"required"
+    string icon = 3;
+
 }
 message RequestDetails {
     string id = 1;
@@ -14,7 +20,8 @@ message RequestDetails {
 message ResponseDetails {
     string id = 1;
     string title = 2;
-   
+    string name = 3;
+    string icon = 4;
 }
 
 
