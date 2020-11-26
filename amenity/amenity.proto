@@ -9,7 +9,7 @@ message RequestCreate {
     // @inject_tag: json:"name",validate:"required"
     string name = 2;
 
-    // @inject_tag: json:"icon",validate:"required"
+    // @inject_tag: json:"icon",validate:"required,url"
     string icon = 3;
 
 }

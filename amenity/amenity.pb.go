@@ -38,8 +38,8 @@ type RequestCreate struct {
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
 	// @inject_tag: json:"name",validate:"required"
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" validate:"required"`
-	// @inject_tag: json:"icon",validate:"required"
-	Icon string `protobuf:"bytes,3,opt,name=icon,proto3" json:"icon" validate:"required"`
+	// @inject_tag: json:"icon",validate:"required,url"
+	Icon string `protobuf:"bytes,3,opt,name=icon,proto3" json:"icon" validate:"required,url"`
 }
 
 func (x *RequestCreate) Reset() {
