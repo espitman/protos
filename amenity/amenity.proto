@@ -1,0 +1,24 @@
+syntax = "proto3";
+package amenity;
+
+
+message RequestCreate {
+    // @inject_tag: json:"title",validate:"required"
+    string title = 1;
+
+}
+message RequestDetails {
+    string id = 1;
+}
+
+message ResponseDetails {
+    string id = 1;
+    string title = 2;
+   
+}
+
+
+service AmenityService {
+    rpc Create(RequestCreate) returns (ResponseDetails) {}
+    rpc Details(RequestDetails) returns (ResponseDetails) {}
+}
