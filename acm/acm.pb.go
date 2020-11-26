@@ -184,12 +184,12 @@ type Meal struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"breakfast",validate:"required"
-	Breakfast bool `protobuf:"varint,1,opt,name=breakfast,proto3" json:"breakfast" validate:"required"`
-	// @inject_tag: json:"lunch",validate:"required"
-	Lunch bool `protobuf:"varint,2,opt,name=lunch,proto3" json:"lunch" validate:"required"`
-	// @inject_tag: json:"dinner",validate:"required"
-	Dinner bool `protobuf:"varint,3,opt,name=dinner,proto3" json:"dinner" validate:"required"`
+	// @inject_tag: json:"breakfast"
+	Breakfast bool `protobuf:"varint,1,opt,name=breakfast,proto3" json:"breakfast"`
+	// @inject_tag: json:"lunch"
+	Lunch bool `protobuf:"varint,2,opt,name=lunch,proto3" json:"lunch"`
+	// @inject_tag: json:"dinner",
+	Dinner bool `protobuf:"varint,3,opt,name=dinner,proto3" json:"dinner"`
 }
 
 func (x *Meal) Reset() {
