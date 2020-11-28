@@ -24,8 +24,16 @@ message ResponseDetails {
     string icon = 4;
 }
 
+message RequestExist {
+    repeated string amenities = 1;
+}
+
+message ResponseExist {
+    bool result = 1;
+}
 
 service AmenityService {
     rpc Create(RequestCreate) returns (ResponseDetails) {}
     rpc Details(RequestDetails) returns (ResponseDetails) {}
+    rpc CheckExist(RequestExist) returns (ResponseExist) {}
 }
