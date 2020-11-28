@@ -93,6 +93,8 @@ message RequestCreate {
     // @inject_tag: json:"meal",validate:"required"
     Meal meal = 12;
     
+    // @inject_tag: json:"amenities",validate:"required"
+    repeated string amenities = 13;
 
 }
 message RequestDetails {
@@ -113,6 +115,7 @@ message ResponseDetails {
     Metrics metrics = 11;
     bool vatStatus = 12;
     Meal meal = 13;
+    repeated string amenities = 14;
 }
 
 
