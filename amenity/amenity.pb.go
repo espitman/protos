@@ -100,7 +100,8 @@ type RequestDetails struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// @inject_tag: json:"id",validate:"required"
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id" validate:"required"`
 }
 
 func (x *RequestDetails) Reset() {
@@ -218,7 +219,8 @@ type RequestExist struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Amenities []string `protobuf:"bytes,1,rep,name=amenities,proto3" json:"amenities,omitempty"`
+	// @inject_tag: json:"amenities",validate:"required"
+	Amenities []string `protobuf:"bytes,1,rep,name=amenities,proto3" json:"amenities" validate:"required"`
 }
 
 func (x *RequestExist) Reset() {
@@ -307,6 +309,101 @@ func (x *ResponseExist) GetResult() bool {
 	return false
 }
 
+type RequestFindByIds struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// @inject_tag: json:"amenities",validate:"required"
+	Amenities []string `protobuf:"bytes,1,rep,name=amenities,proto3" json:"amenities" validate:"required"`
+}
+
+func (x *RequestFindByIds) Reset() {
+	*x = RequestFindByIds{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_amenity_amenity_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RequestFindByIds) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RequestFindByIds) ProtoMessage() {}
+
+func (x *RequestFindByIds) ProtoReflect() protoreflect.Message {
+	mi := &file_amenity_amenity_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RequestFindByIds.ProtoReflect.Descriptor instead.
+func (*RequestFindByIds) Descriptor() ([]byte, []int) {
+	return file_amenity_amenity_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *RequestFindByIds) GetAmenities() []string {
+	if x != nil {
+		return x.Amenities
+	}
+	return nil
+}
+
+type ResponseFindByIds struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Amenities []*ResponseDetails `protobuf:"bytes,1,rep,name=amenities,proto3" json:"amenities,omitempty"`
+}
+
+func (x *ResponseFindByIds) Reset() {
+	*x = ResponseFindByIds{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_amenity_amenity_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResponseFindByIds) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResponseFindByIds) ProtoMessage() {}
+
+func (x *ResponseFindByIds) ProtoReflect() protoreflect.Message {
+	mi := &file_amenity_amenity_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResponseFindByIds.ProtoReflect.Descriptor instead.
+func (*ResponseFindByIds) Descriptor() ([]byte, []int) {
+	return file_amenity_amenity_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ResponseFindByIds) GetAmenities() []*ResponseDetails {
+	if x != nil {
+		return x.Amenities
+	}
+	return nil
+}
+
 var File_amenity_amenity_proto protoreflect.FileDescriptor
 
 var file_amenity_amenity_proto_rawDesc = []byte{
@@ -330,21 +427,33 @@ var file_amenity_amenity_proto_rawDesc = []byte{
 	0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x09, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x69, 0x65, 0x73,
 	0x22, 0x27, 0x0a, 0x0d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x45, 0x78, 0x69, 0x73,
 	0x74, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x08, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0xcd, 0x01, 0x0a, 0x0e, 0x41, 0x6d,
-	0x65, 0x6e, 0x69, 0x74, 0x79, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x06,
-	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x16, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79,
-	0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x1a, 0x18,
+	0x08, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x30, 0x0a, 0x10, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x46, 0x69, 0x6e, 0x64, 0x42, 0x79, 0x49, 0x64, 0x73, 0x12, 0x1c, 0x0a,
+	0x09, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x69, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09,
+	0x52, 0x09, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x69, 0x65, 0x73, 0x22, 0x4b, 0x0a, 0x11, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x46, 0x69, 0x6e, 0x64, 0x42, 0x79, 0x49, 0x64, 0x73,
+	0x12, 0x36, 0x0a, 0x09, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x69, 0x65, 0x73, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x52, 0x09, 0x61,
+	0x6d, 0x65, 0x6e, 0x69, 0x74, 0x69, 0x65, 0x73, 0x32, 0x93, 0x02, 0x0a, 0x0e, 0x41, 0x6d, 0x65,
+	0x6e, 0x69, 0x74, 0x79, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x06, 0x43,
+	0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x16, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x1a, 0x18, 0x2e,
+	0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x3e, 0x0a, 0x07, 0x44, 0x65, 0x74,
+	0x61, 0x69, 0x6c, 0x73, 0x12, 0x17, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x18, 0x2e,
+	0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x3d, 0x0a, 0x0a, 0x43, 0x68, 0x65,
+	0x63, 0x6b, 0x45, 0x78, 0x69, 0x73, 0x74, 0x12, 0x15, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74,
+	0x79, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x45, 0x78, 0x69, 0x73, 0x74, 0x1a, 0x16,
 	0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x3e, 0x0a, 0x07, 0x44, 0x65,
-	0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x17, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x18,
-	0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x3d, 0x0a, 0x0a, 0x43, 0x68,
-	0x65, 0x63, 0x6b, 0x45, 0x78, 0x69, 0x73, 0x74, 0x12, 0x15, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69,
-	0x74, 0x79, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x45, 0x78, 0x69, 0x73, 0x74, 0x1a,
-	0x16, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x45, 0x78, 0x69, 0x73, 0x74, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x65, 0x45, 0x78, 0x69, 0x73, 0x74, 0x22, 0x00, 0x12, 0x44, 0x0a, 0x09, 0x46, 0x69, 0x6e, 0x64,
+	0x42, 0x79, 0x49, 0x64, 0x73, 0x12, 0x19, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x46, 0x69, 0x6e, 0x64, 0x42, 0x79, 0x49, 0x64, 0x73,
+	0x1a, 0x1a, 0x2e, 0x61, 0x6d, 0x65, 0x6e, 0x69, 0x74, 0x79, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x46, 0x69, 0x6e, 0x64, 0x42, 0x79, 0x49, 0x64, 0x73, 0x22, 0x00, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -359,26 +468,31 @@ func file_amenity_amenity_proto_rawDescGZIP() []byte {
 	return file_amenity_amenity_proto_rawDescData
 }
 
-var file_amenity_amenity_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_amenity_amenity_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_amenity_amenity_proto_goTypes = []interface{}{
-	(*RequestCreate)(nil),   // 0: amenity.RequestCreate
-	(*RequestDetails)(nil),  // 1: amenity.RequestDetails
-	(*ResponseDetails)(nil), // 2: amenity.ResponseDetails
-	(*RequestExist)(nil),    // 3: amenity.RequestExist
-	(*ResponseExist)(nil),   // 4: amenity.ResponseExist
+	(*RequestCreate)(nil),     // 0: amenity.RequestCreate
+	(*RequestDetails)(nil),    // 1: amenity.RequestDetails
+	(*ResponseDetails)(nil),   // 2: amenity.ResponseDetails
+	(*RequestExist)(nil),      // 3: amenity.RequestExist
+	(*ResponseExist)(nil),     // 4: amenity.ResponseExist
+	(*RequestFindByIds)(nil),  // 5: amenity.RequestFindByIds
+	(*ResponseFindByIds)(nil), // 6: amenity.ResponseFindByIds
 }
 var file_amenity_amenity_proto_depIdxs = []int32{
-	0, // 0: amenity.AmenityService.Create:input_type -> amenity.RequestCreate
-	1, // 1: amenity.AmenityService.Details:input_type -> amenity.RequestDetails
-	3, // 2: amenity.AmenityService.CheckExist:input_type -> amenity.RequestExist
-	2, // 3: amenity.AmenityService.Create:output_type -> amenity.ResponseDetails
-	2, // 4: amenity.AmenityService.Details:output_type -> amenity.ResponseDetails
-	4, // 5: amenity.AmenityService.CheckExist:output_type -> amenity.ResponseExist
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: amenity.ResponseFindByIds.amenities:type_name -> amenity.ResponseDetails
+	0, // 1: amenity.AmenityService.Create:input_type -> amenity.RequestCreate
+	1, // 2: amenity.AmenityService.Details:input_type -> amenity.RequestDetails
+	3, // 3: amenity.AmenityService.CheckExist:input_type -> amenity.RequestExist
+	5, // 4: amenity.AmenityService.FindByIds:input_type -> amenity.RequestFindByIds
+	2, // 5: amenity.AmenityService.Create:output_type -> amenity.ResponseDetails
+	2, // 6: amenity.AmenityService.Details:output_type -> amenity.ResponseDetails
+	4, // 7: amenity.AmenityService.CheckExist:output_type -> amenity.ResponseExist
+	6, // 8: amenity.AmenityService.FindByIds:output_type -> amenity.ResponseFindByIds
+	5, // [5:9] is the sub-list for method output_type
+	1, // [1:5] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_amenity_amenity_proto_init() }
@@ -447,6 +561,30 @@ func file_amenity_amenity_proto_init() {
 				return nil
 			}
 		}
+		file_amenity_amenity_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestFindByIds); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_amenity_amenity_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ResponseFindByIds); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -454,7 +592,7 @@ func file_amenity_amenity_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_amenity_amenity_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -483,6 +621,7 @@ type AmenityServiceClient interface {
 	Create(ctx context.Context, in *RequestCreate, opts ...grpc.CallOption) (*ResponseDetails, error)
 	Details(ctx context.Context, in *RequestDetails, opts ...grpc.CallOption) (*ResponseDetails, error)
 	CheckExist(ctx context.Context, in *RequestExist, opts ...grpc.CallOption) (*ResponseExist, error)
+	FindByIds(ctx context.Context, in *RequestFindByIds, opts ...grpc.CallOption) (*ResponseFindByIds, error)
 }
 
 type amenityServiceClient struct {
@@ -520,11 +659,21 @@ func (c *amenityServiceClient) CheckExist(ctx context.Context, in *RequestExist,
 	return out, nil
 }
 
+func (c *amenityServiceClient) FindByIds(ctx context.Context, in *RequestFindByIds, opts ...grpc.CallOption) (*ResponseFindByIds, error) {
+	out := new(ResponseFindByIds)
+	err := c.cc.Invoke(ctx, "/amenity.AmenityService/FindByIds", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AmenityServiceServer is the server API for AmenityService service.
 type AmenityServiceServer interface {
 	Create(context.Context, *RequestCreate) (*ResponseDetails, error)
 	Details(context.Context, *RequestDetails) (*ResponseDetails, error)
 	CheckExist(context.Context, *RequestExist) (*ResponseExist, error)
+	FindByIds(context.Context, *RequestFindByIds) (*ResponseFindByIds, error)
 }
 
 // UnimplementedAmenityServiceServer can be embedded to have forward compatible implementations.
@@ -539,6 +688,9 @@ func (*UnimplementedAmenityServiceServer) Details(context.Context, *RequestDetai
 }
 func (*UnimplementedAmenityServiceServer) CheckExist(context.Context, *RequestExist) (*ResponseExist, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckExist not implemented")
+}
+func (*UnimplementedAmenityServiceServer) FindByIds(context.Context, *RequestFindByIds) (*ResponseFindByIds, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindByIds not implemented")
 }
 
 func RegisterAmenityServiceServer(s *grpc.Server, srv AmenityServiceServer) {
@@ -599,6 +751,24 @@ func _AmenityService_CheckExist_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AmenityService_FindByIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestFindByIds)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmenityServiceServer).FindByIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/amenity.AmenityService/FindByIds",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmenityServiceServer).FindByIds(ctx, req.(*RequestFindByIds))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _AmenityService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "amenity.AmenityService",
 	HandlerType: (*AmenityServiceServer)(nil),
@@ -614,6 +784,10 @@ var _AmenityService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckExist",
 			Handler:    _AmenityService_CheckExist_Handler,
+		},
+		{
+			MethodName: "FindByIds",
+			Handler:    _AmenityService_FindByIds_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

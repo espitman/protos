@@ -14,6 +14,7 @@ message RequestCreate {
 
 }
 message RequestDetails {
+    // @inject_tag: json:"id",validate:"required"
     string id = 1;
 }
 
@@ -25,6 +26,7 @@ message ResponseDetails {
 }
 
 message RequestExist {
+    // @inject_tag: json:"amenities",validate:"required"
     repeated string amenities = 1;
 }
 
@@ -32,8 +34,21 @@ message ResponseExist {
     bool result = 1;
 }
 
+message RequestFindByIds {
+    // @inject_tag: json:"amenities",validate:"required"
+    repeated string amenities = 1;
+}
+
+
+message ResponseFindByIds {
+    repeated ResponseDetails amenities = 1;
+}
+
+
+
 service AmenityService {
     rpc Create(RequestCreate) returns (ResponseDetails) {}
     rpc Details(RequestDetails) returns (ResponseDetails) {}
     rpc CheckExist(RequestExist) returns (ResponseExist) {}
+    rpc FindByIds(RequestFindByIds) returns (ResponseFindByIds) {} 
 }
